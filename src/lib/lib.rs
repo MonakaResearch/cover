@@ -62,9 +62,9 @@
 //! // load CoRIMs
 //! let mut store = MemCorimStore::new(keystore);
 //! for path in [
-//!     "test/corim/signed-corim-cca-ref-plat.cbor",
-//!     "test/corim/signed-corim-cca-ref-realm.cbor",
-//!     "test/corim/signed-corim-cca-ta.cbor",
+//!     "test/corim/signed-corim-cca-plat-rv.cbor",
+//!     "test/corim/signed-corim-cca-realm-rv.cbor",
+//!     "test/corim/signed-corim-cca-plat-ta.cbor",
 //! ] {
 //!     let bytes = fs::read(path).unwrap();
 //!     store.add_bytes(&bytes).unwrap();
@@ -79,7 +79,7 @@
 //! let verifier = Verifier::new(store, schemes);
 //!
 //! // load evidence
-//! let evidence = fs::read("test/cca/cca-token-01.cbor").unwrap();
+//! let evidence = fs::read("test/cca/cca-token-04.cbor").unwrap();
 //!
 //! // appraise evidence and produce the attestation result
 //! let result = verifier.verify("cca", evidence.as_slice(), None).unwrap();
@@ -99,8 +99,8 @@
 //! target/debug/cover-cli --corim-dir test/corim/ \
 //!     --key test/corim/key.pub.pem \
 //!     --verifier-key test/corim/key.pub.pem \
-//!     --pretty test/cca/cca-token-01.cbor \
-//!     --nonce adfadaewafewr32r --output cca-token-01.ear.json
+//!     --pretty test/cca/cca-token-04.cbor \
+//!     --nonce adfadaewafewr32r --output cca-token-04.ear.json
 //! ```
 //!
 //! Use `-h` to see the full list of command line arguments.
